@@ -41,6 +41,9 @@ group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "standardrb"
   gem "pry"
+  gem "capybara"
+  gem "orderly"
+  gem "launchy"
   gem "shoulda-matchers"
   gem "jsonapi-serializer"
   gem "figaro"
