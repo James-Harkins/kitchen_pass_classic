@@ -25,6 +25,22 @@ describe User do
       expect(user).not_to have_attribute(:password)
       expect(user.password_digest).not_to eq("test123")
     end
+
+    it "is created with a default role of 0" do
+      user = User.create!(first_name: "Tony", last_name: "Soprano", email: "she_was_a_beautiful_creetchuh@gmail.com", password: "test123", password_confirmation: "test123")
+
+      expect(user.role).to eq(0)
+      expect(user.default?).to be true
+      expect(user.admin?).to be false
+    end
+
+    it "can be created as an admin" do
+      user = User.create!(first_name: "Tony", last_name: "Soprano", email: "she_was_a_beautiful_creetchuh@gmail.com", password: "test123", password_confirmation: "test123", role: 1)
+
+      expect(user.role).to eq(1)
+      expect(user.default?).to be false
+      expect(user.admin?).to be true
+    end
   end
 
   describe "relationships" do
