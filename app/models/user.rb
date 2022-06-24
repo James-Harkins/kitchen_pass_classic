@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates_presence_of :email
   validates :email, uniqueness: true
   has_secure_password
+  enum role: %w[default admin]
 
   has_many :user_trips
   has_many :trips, through: :user_trips

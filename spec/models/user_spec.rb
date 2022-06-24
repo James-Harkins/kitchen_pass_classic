@@ -29,7 +29,7 @@ describe User do
     it "is created with a default role of 0" do
       user = User.create!(first_name: "Tony", last_name: "Soprano", email: "she_was_a_beautiful_creetchuh@gmail.com", password: "test123", password_confirmation: "test123")
 
-      expect(user.role).to eq(0)
+      expect(user.role).to eq("default")
       expect(user.default?).to be true
       expect(user.admin?).to be false
     end
@@ -37,7 +37,7 @@ describe User do
     it "can be created as an admin" do
       user = User.create!(first_name: "Tony", last_name: "Soprano", email: "she_was_a_beautiful_creetchuh@gmail.com", password: "test123", password_confirmation: "test123", role: 1)
 
-      expect(user.role).to eq(1)
+      expect(user.role).to eq("admin")
       expect(user.default?).to be false
       expect(user.admin?).to be true
     end
