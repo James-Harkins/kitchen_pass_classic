@@ -114,9 +114,7 @@ describe "/register path" do
   describe "as a logged in user" do
     describe "when i visit the /register path" do
       it "i am redirected to my dashboard and see a message that says that i must logout to register" do
-        visit "/"
-
-        click_button "Login"
+        visit "/login"
 
         fill_in "Email", with: "wokeupthismorning@gmail.com"
         fill_in "Password", with: "test123"
