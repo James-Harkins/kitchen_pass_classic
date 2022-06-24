@@ -6,7 +6,8 @@ describe Trip do
 
     describe "year uniqueness" do
       before do
-        trip = Trip.create!(year: "2022", total_cost: 9500.0)
+        location = Location.create!(name: "VA Beach", state: "VA")
+        trip = Trip.create!(year: "2022", total_cost: 9500.0, location: location)
       end
       it { should allow_value("2023").for(:year) }
       it { should_not allow_value("2022").for(:year) }
