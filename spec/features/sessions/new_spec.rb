@@ -39,6 +39,10 @@ describe "/login path" do
 
   describe "as a logged in user" do
     describe "when i visit the /login path" do
+      before do
+        @user_1 = User.create!(first_name: "Tony", last_name: "Soprano", email: "wokeupthismorning@gmail.com", password: "test123", password_confirmation: "test123")
+      end
+
       it "i am redirected to my dashboard and see a message that says that i must logout to register" do
         visit "/login"
 

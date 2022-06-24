@@ -20,7 +20,7 @@ describe "/register path" do
 
         expect(current_path).to eq("/login")
 
-        fill_in "Email", with: "varsityathlete@gmail.com"
+        fill_in "Email", with: "varsity_athlete@gmail.com"
         fill_in "Password", with: "test123"
         click_button "Log In"
 
@@ -60,7 +60,7 @@ describe "/register path" do
 
         fill_in "First name", with: "Junior"
         fill_in "Last name", with: "Soprano"
-        fill_in "Email", with: "varsity_athlete@gmail.com"
+        fill_in "Email", with: "wokeupthismorning@gmail.com"
         fill_in "Password", with: "test123"
         fill_in "Password confirmation", with: "test123"
 
@@ -113,6 +113,10 @@ describe "/register path" do
 
   describe "as a logged in user" do
     describe "when i visit the /register path" do
+      before do
+        @user_1 = User.create!(first_name: "Tony", last_name: "Soprano", email: "wokeupthismorning@gmail.com", password: "test123", password_confirmation: "test123")
+      end
+
       it "i am redirected to my dashboard and see a message that says that i must logout to register" do
         visit "/login"
 
